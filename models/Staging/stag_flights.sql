@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('group_2_project_weather', 'flights_all') }}
