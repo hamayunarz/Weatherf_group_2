@@ -1,5 +1,5 @@
 WITH flights AS (
-  SELECT * FROM {{ ref('stag_flights') }}
+  SELECT * FROM {{ ref('prep_flight_join') }}
 ),
 weather_daily AS (
   SELECT 

@@ -1,0 +1,1 @@
+SELECT * FROM {{ ref('prep_flight_join') }}
