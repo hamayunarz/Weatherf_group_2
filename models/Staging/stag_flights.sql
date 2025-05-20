@@ -10,6 +10,7 @@ SELECT
     tail_number,
     flight_number,
     dep_time,
+    air_time,
     sched_dep_time,
     dep_delay,
     arr_time,

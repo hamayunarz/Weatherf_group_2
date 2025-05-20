@@ -21,3 +21,5 @@ daily_flattened AS (
 )
 SELECT * 
 FROM daily_flattened
+
+sta
