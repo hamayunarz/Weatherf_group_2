@@ -1,5 +1,15 @@
 SELECT
   f.flight_date,
+  f.origin AS airport_code,
+  f.lat AS airport_latitude,
+  f.alt AS airport_altitude, 
+  f.lon AS airport_longitude,
+  f.tz AS airport_timezone,
+  CASE 
+     WHEN f.alt > 5000 THEN 'high_altitude'
+     WHEN f.alt BETWEEN 2000 AND 5000 THEN 'medium_altitude'
+     ELSE 'low_altitude' 
+  END AS altitude_category,
   f.airline, 
   f.tail_number,
   f.flight_number,
