@@ -1,6 +1,5 @@
 SELECT
   f.flight_date,
-  f.origin AS airport_code,
   f.airline, 
   f.tail_number,
   f.flight_number,
@@ -34,7 +33,7 @@ SELECT
   hdw.thunderstorm_hours,
   hdw.snow_hours,
   hdw.rain_hours
-FROM {{ ref('stag_flights') }} f
+FROM {{ ref('flights') }} f
 LEFT JOIN {{ ref('weather_daily') }} wd
   ON f.origin = wd.airport_code
   AND f.flight_date = wd.date

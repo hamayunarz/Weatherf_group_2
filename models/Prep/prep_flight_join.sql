@@ -34,7 +34,8 @@ airports AS (
   WHERE faa IN ('MCO', 'TPA', 'DAB', 'SRQ', 'PIE')
 )
 SELECT
-  f.*
+  f.*, 
+  a.*
 FROM flights f
 INNER JOIN airports a
   ON f.origin = a.faa
