@@ -31,7 +31,6 @@ airports AS (
         dst,
         city
   FROM {{ ref('stag_airports') }}
-  WHERE faa IN ('MCO', 'TPA', 'DAB', 'SRQ', 'PIE')
 )
 SELECT
   f.*, 
