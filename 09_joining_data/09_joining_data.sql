@@ -12,9 +12,11 @@ CREATE TABLE exam_grades (
   student_id INT,
   grade NUMERIC
 );
-
 ALTER TABLE exam_grades
 ADD FOREIGN KEY (student_id) REFERENCES students(student_id);
+
+SELECT * FROM exam_grades
+
 
 INSERT INTO exam_grades (seminar_name, student_id, grade)
 VALUES 
@@ -88,7 +90,9 @@ ON s.student_id = eg.student_id
 SELECT * 
 FROM enrolments AS er
 FULL JOIN exam_grades AS eg
-ON er.student_id = eg.student_id AND er.seminar_name = eg.seminar_name;
+ON er.student_id = eg.student_id 
+
+AND er.seminar_name = eg.seminar_name;
 
 /* ### Curious Fact: 
  * 	All join types have two clause version, which can be used interchangeably:  
@@ -149,7 +153,7 @@ SELECT * from academy_total_view;
  * refreshed or updated. They’re useful for precomputing and caching complex queries, improving 
  * performance by avoiding redundant calculations. as a materialized view.
  */
-DROP MATERIALIZED VIEW IF EXISTS academy_total_mview;
+DROP VIEW IF EXISTS academy_total_mview;
 CREATE MATERIALIZED VIEW academy_total_mview AS(
 	SELECT * 
 	FROM students

@@ -13,10 +13,11 @@
  * 			CURRENT_TIME : retrieves the current TIME
  */
  
-SELECT NOW() AS timestamp_with_time_zone;
+SELECT NOW() AS timestamp_with_time_zone,  CURRENT_TIMESTAMP AS curr_timestamp_with_time_zone;
 SELECT CURRENT_TIMESTAMP AS curr_timestamp_with_time_zone;
 SELECT CURRENT_DATE AS curr_date_without_time_zone;
 SELECT CURRENT_TIME AS curr_date_without_time_zone;
+
 
 /* 2. DATE_PART() 
  * 		As was seen in pandas a timestamps allows access to different time related features.

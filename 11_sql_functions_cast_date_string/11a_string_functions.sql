@@ -24,7 +24,7 @@ FROM students;
  * 
  * 		STARTS_WITH(string, prefix) -> bool: 
  */
-SELECT STARTS_WITH('SPICED', 'SP') AS string_position;
+SELECT STARTS_WITH('PICED', 'SP') AS string_position;
 
 SELECT *
 FROM regions
@@ -76,7 +76,7 @@ FROM students;
 /* SUBSTRING(string [from int] [for int]) -> text: 
  * Extract substring
  */
-SELECT SUBSTRING(student_name FROM 3 FOR 2) AS string_substring
+SELECT student_name, SUBSTRING(student_name FROM 3 FOR 2) AS string_substring
 FROM students;
 
 

@@ -111,10 +111,9 @@ SELECT ROUND(3.456457, 2),
 	equal to the input value.
 	For instance, FLOOR(5.7) results in 5, and FLOOR(-42.8) yields -43.
 */
-SELECT AVG(air_time) AS avg_air_time,
-		FLOOR(AVG(air_time)) AS avg_air_time_floor
-FROM flights
-WHERE origin = 'BOS' AND dest = 'HNL';
+SELECT air_time, AVG(air_time) AS avg_air_time
+		FLOOR(AVG(air_time)) AS avg_air_time_floor 
+FROM flights WHERE origin = 'BOS' AND dest = 'HNL';
 
 /* CEILING() Function:
 	The CEILING() function rounds a numeric value up to the nearest integer that is greater than or 
@@ -194,6 +193,8 @@ WHERE alt >= 12400
 /* Practical Example - Floor Division and Modulo:
  * How long is the total airtime on the 1st of January 2024 in days + hours + minutes?
  */
+SELECT 5/2
+
 
 SELECT SUM(air_time) / 60 / 24 AS days,-- deviding total minutes to whole days
 	   SUM(air_time) / 60 % 24 AS hours, -- shows the remaining hours after deviding to whole days

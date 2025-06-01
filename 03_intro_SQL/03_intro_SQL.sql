@@ -43,12 +43,16 @@ FROM airports;
 -- TRY changing the order of columns, or select same column twice:
 
 
+
+
+
 -- 4. LIMIT the output 
 /* For example we can limit our result to the first 15 rows and all columns from a table 
  */
 SELECT *
 FROM airports
 LIMIT 15;
+
 
 -- TRY it with 'flights', e.g. limit it to 1:
 
@@ -78,7 +82,7 @@ ORDER BY country;
 /* To find unique values in a column we need to add DISTINCT before the column name.
  * This time we get only unique country names.
  */ 
-SELECT DISTINCT country
+SELECT DISTINCT country, city
 FROM airports
 ORDER BY country
   
@@ -118,6 +122,9 @@ ORDER BY alt;
 		alt AS alt_ft,
 		alt / 3.28084 AS alt_m	   
 */
+SELECT upper(country) AS ccc FROM airports
+
+
 
 
 --9. Documenting Code

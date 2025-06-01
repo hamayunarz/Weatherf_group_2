@@ -13,7 +13,8 @@ Common Table Expressions allow you to create **temporary *named* result sets** f
 
 **Recursive** CTEs are helpful when you have to work with hierarchical data, compute recursive aggregates, implement graph algorithms, do recursive calculations like factorials or the Fibonacci series, or generate a sequence of numbers or dates.
 
-# 2. Non-Recursive CTEs
+# 2. 
+ CTEs
 
 In this lecture we are going to focus on the none-recursive type of Common Table Expressions.
 

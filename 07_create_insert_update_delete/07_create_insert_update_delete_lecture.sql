@@ -151,7 +151,7 @@ CREATE TABLE countries_selection (
 	   le_avg NUMERIC NOT NULL, -- the column is not allowing NULL values
 	   record_start INTEGER,
 	   record_end INTEGER,
-	   record_duration INTEGER
+	   record_duration INTEGER 
 	   );
 	  
 -- Check it out. The table is empty. But we have the structure: columns and constraints. 
@@ -164,8 +164,7 @@ SELECT * FROM countries_selection;
 	  
 -- Add data to the table 'countries_selection' from a query filtering the table 'countries' 
 -- for 5 countries, also rounding the avg_life_expectancy
-INSERT INTO countries_selection (state, le_avg, record_start, record_end, record_duration)
-SELECT country, 
+INSERT INTO countries_selection SELECT country, 
 	   ROUND(avg_life_expectancy::NUMERIC, 2), 
 	   first_year, 
 	   last_year, 

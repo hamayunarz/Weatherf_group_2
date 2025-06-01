@@ -29,7 +29,7 @@
  */
 
 -- 1st VIEW daily_totals
---CREATE VIEW daily_totals AS 
+CREATE VIEW daily_totals AS 
 	SELECT flight_date,
 		   origin, 
 		   dest, 
@@ -37,9 +37,8 @@
 	FROM flights
 	WHERE (origin, dest) = ('JFK', 'LAX')
 	GROUP BY flight_date, origin, dest;
-
 -- 2nd VIEW: monthly_totals
---CREATE VIEW monthly_totals AS
+CREATE VIEW monthly_totals AS
 	SELECT DATE_TRUNC('month', flight_date) AS yearmonth, 
 	   origin, 
 	   dest, 
@@ -48,7 +47,7 @@
 	GROUP BY yearmonth, origin, dest;
 
 -- 3rd VIEW: add the maximum to the daily detail
---CREATE VIEW daily_totals_with_max AS
+CREATE VIEW daily_totals_with_max AS
 	SELECT f.flight_date,
 		   f.origin,
 		   f.dest,

@@ -5,3 +5,4 @@
  *		Can you come up with some more interesting metrics?
  * 	    Answer all questions with a single query.
  */
+SELECT * FROM flights f 

@@ -10,16 +10,30 @@
  * 1. We want the customer names in a consistent format.
  * The frist task for this is to bring all initial letters of each word upper case
  * and all following letters lower case.
+ */
+ 
+ SELECT * FROM messy_customer_data
+ SELECT * FROM customer_clean 
+ SELECT initcap(customer_name) AS Customer_Name FROM messy_customer_data 
  * 
  * 2. Hang on! There is one exception. for the special case of 'Gmbh' we want it to be 'GmbH'
+ 
+ SELECT replace(customer_name,'Gmbh','GmbH') AS Customer_Name FROM messy_customer_data 
  * 
- * 3. Let's move to the email addresses, for later analysis we would like to store the email provider in a seperate column.
+ * 3. Lets move to the email addresses, for later analysis we would like to store the email provider in a seperate column.
  * Please extract the email provider from all email addresses and store it in a new column called 'email_provider'
+
+   select split_part(email,'@',2) as Email_Provider from messy_customer_data 
  * 
- * 4. let's have a look at the address column. First we would like to split street and house number. 
+ * 4. lets have a look at the address column. First we would like to split street and house number. 
  * Create one column called 'street' that only contains the street information
  * Create another column called 'house_number' that stores that house number.
  *
+ SELECT address, regexp_replace(address, '\s\d+.*$', '') AS street FROM messy_customer_data ;
+ SELECT address,regexp_replace(address, '^.*\s(\d+\w*)$', '\1') AS house_number FROM messy_customer_data;
+ select split_part(address,' ',3) as street from messy_customer_data 
+
+ 
  * There are many ways to achieve it. Try to use tools you already learned first!
  * 
  * Hint #1: We can assume the house number is always last 
@@ -34,7 +48,11 @@
  *
  * 5. Furthermore, we want all street names to be in a consistent format.
  * For that, please make sure all the different version of street in german (str, Str, strasse, straße, Strasse) are replaced by simply 'street'.
- *
+  
+SELECT REPLACE( REPLACE( REPLACE(address, 'str', 'street'), 'Str', 'street'),'strasse', 'street') AS customer_name FROM messy_customer_data; 
+SELECT regexp_replace(address, '(?i)\b(str|strasse|straße|Strasse|Str|str)\b', 'street', 'g') AS customer_name FROM messy_customer_data;
+
+
  * 6. Continuing with cleaning the street names... we want all street names and the word street to be connected without a whitespace. 
  * For example "Berlin street" shall be "Berlinstreet". Please make sure all street names are in that format.
  *
